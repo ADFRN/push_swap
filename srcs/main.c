@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:22:11 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/02 19:20:04 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/03 18:54:28 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,41 @@
 #include "../libft/libft.h"
 #include <stdio.h>
 
-int		create_list(t_stack **lst, int value);
-t_stack	*ft_stacknew(int value);
+// void	radix_sort(t_stack *a, t_stack *b)
+// {
+// 	int	max_bits;
+// 	int	size;
+// 	int	max_index;
+// 	int	index;
+// 	int	i;
+// 	int	j;
+// 	int	index;
+
+// 	max_index = get_max(a);
+// 	max_bits = 0;
+// 	i = -1;
+// 	j = -1;
+// 	while ((1 << max_bits) <= max_index)
+// 		max_bits++;
+// 	while (i++ < max_bits)
+// 	{
+// 		size = stack_size(a);
+// 		while (j++ < size)
+// 		{
+// 			index = a->index;
+// 			if (((index >> i) & 1) == 1)
+// 				ra(a);
+// 			else
+// 				pb(a, b);
+// 			if (((index >> i) & 1) == 1)
+// 				ra(a);
+// 			else
+// 				pb(a, b);
+// 		}
+// 		while (stack_size(b) > 0)
+// 			pa(a, b);
+// 	}
+// }
 
 int	main(int argc, char **argv)
 {
@@ -33,40 +66,15 @@ int	main(int argc, char **argv)
 		return (0);
 	while (i++ < (argc - 1))
 		create_list(&stack_a, ft_atoi(argv[i]));
+	assign_index(&stack_a);
 	cur = stack_a;
-	max = get_max(stack_a);
+	max = get_max(&cur);
 	while (cur)
 	{
-		printf("%d\n", cur->value);
+		printf("%d\n", cur->index);
 		cur = cur->next;
 	}
 	return (0);
-}
-
-int	ft_atoi(const char *str)
-{
-	int		nbr;
-	int		sign;
-	size_t	i;
-
-	nbr = 0;
-	sign = 1;
-	i = 0;
-	while (str[i] == ' ' || ('\t' <= str[i] && str[i] <= '\r'))
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	while ('0' <= str[i] && str[i] <= '9')
-	{
-		nbr = nbr * 10 + str[i] - '0';
-		i++;
-	}
-	return (nbr * sign);
 }
 
 int	create_list(t_stack **lst, int value)
@@ -83,8 +91,6 @@ int	create_list(t_stack **lst, int value)
 		while (tmp->next != NULL)
 			tmp = tmp->next;
 		tmp->next = ft_stacknew(value);
-		if (tmp->next)
-			tmp->next->prev = tmp;
 	}
 	return (1);
 }
@@ -99,6 +105,27 @@ t_stack	*ft_stacknew(int value)
 	node->value = value;
 	node->index = 0;
 	node->next = NULL;
-	node->prev = NULL;
 	return (node);
+}
+
+void	assign_index(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack	*compare;
+	int		index;
+
+	current = *stack;
+	while (current)
+	{
+		index = 0;
+		compare = *stack;
+		while (compare)
+		{
+			if (compare->value < current->value)
+				index++;
+			compare = compare->next;
+		}
+		current->index = index;
+		current = current->next;
+	}
 }

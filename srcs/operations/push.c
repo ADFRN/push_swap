@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:54:05 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/02 16:47:46 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/03 18:28:02 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	tmp = *stack_b;
 	*stack_b = (*stack_b)->next;
-	tmp->next = stack_a;
+	tmp->next = *stack_a;
 	*stack_a = tmp;
 	write(1, "pa\n", 3);
 }

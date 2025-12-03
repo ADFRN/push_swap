@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:21:58 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/02 13:48:36 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/03 18:31:16 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,20 @@
 # define PUSH_SWAP_H
 
 # include <stddef.h>
+# include <unistd.h>
+# include "../libft/libft.h"
 
 typedef struct s_stack
 {
 	int				value;
 	int				index;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }					t_stack;
+
+int					create_list(t_stack **lst, int value);
+t_stack				*ft_stacknew(int value);
+void				assign_index(t_stack **stack);
+int					get_max(t_stack **stack_a);
 
 void				sa(t_stack **stack_a);
 void				sb(t_stack **stack_b);
