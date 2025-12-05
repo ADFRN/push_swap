@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:22:11 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/03 18:54:28 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/05 05:18:30 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,10 @@
 #include "../libft/libft.h"
 #include <stdio.h>
 
-// void	radix_sort(t_stack *a, t_stack *b)
-// {
-// 	int	max_bits;
-// 	int	size;
-// 	int	max_index;
-// 	int	index;
-// 	int	i;
-// 	int	j;
-// 	int	index;
-
-// 	max_index = get_max(a);
-// 	max_bits = 0;
-// 	i = -1;
-// 	j = -1;
-// 	while ((1 << max_bits) <= max_index)
-// 		max_bits++;
-// 	while (i++ < max_bits)
-// 	{
-// 		size = stack_size(a);
-// 		while (j++ < size)
-// 		{
-// 			index = a->index;
-// 			if (((index >> i) & 1) == 1)
-// 				ra(a);
-// 			else
-// 				pb(a, b);
-// 			if (((index >> i) & 1) == 1)
-// 				ra(a);
-// 			else
-// 				pb(a, b);
-// 		}
-// 		while (stack_size(b) > 0)
-// 			pa(a, b);
-// 	}
-// }
-
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	t_stack	*cur;
 	int		i;
 	int		max;
 
@@ -67,45 +30,9 @@ int	main(int argc, char **argv)
 	while (i++ < (argc - 1))
 		create_list(&stack_a, ft_atoi(argv[i]));
 	assign_index(&stack_a);
-	cur = stack_a;
-	max = get_max(&cur);
-	while (cur)
-	{
-		printf("%d\n", cur->index);
-		cur = cur->next;
-	}
+	max = get_max(&stack_a);
+	radix_sort(&stack_a, &stack_b, max);
 	return (0);
-}
-
-int	create_list(t_stack **lst, int value)
-{
-	t_stack	*tmp;
-
-	if (!lst)
-		return (0);
-	if (*lst == NULL)
-		*lst = ft_stacknew(value);
-	else
-	{
-		tmp = *lst;
-		while (tmp->next != NULL)
-			tmp = tmp->next;
-		tmp->next = ft_stacknew(value);
-	}
-	return (1);
-}
-
-t_stack	*ft_stacknew(int value)
-{
-	t_stack	*node;
-
-	node = malloc(sizeof(t_stack));
-	if (!node)
-		return (NULL);
-	node->value = value;
-	node->index = 0;
-	node->next = NULL;
-	return (node);
 }
 
 void	assign_index(t_stack **stack)
@@ -127,5 +54,32 @@ void	assign_index(t_stack **stack)
 		}
 		current->index = index;
 		current = current->next;
+	}
+}
+
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, int max)
+{
+	int	max_bits;
+	int	i;
+	int	j;
+
+	i = 0;
+	max_bits = 0;
+	while ((max >> max_bits) != 0)
+		max_bits++;
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j < (max + 1))
+		{
+			if ((((*stack_a)->index >> i) & 1) == 0)
+				pb(stack_a, stack_b);
+			else
+				ra(stack_a);
+			j++;
+		}
+		while ((*stack_b) != NULL)
+			pa(stack_a, stack_b);
+		i++;
 	}
 }
