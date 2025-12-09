@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:22:11 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/05 05:18:30 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/08 10:32:08 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ int	main(int argc, char **argv)
 	(void)stack_b;
 	if (argc <= 1)
 		return (0);
-	while (i++ < (argc - 1))
-		create_list(&stack_a, ft_atoi(argv[i]));
+	if (check_errors(argc, argv))
+		return (1);
+	i = 1;
+	while (i < argc)
+		create_list(&stack_a, ft_atoi(argv[i++]));
 	assign_index(&stack_a);
 	max = get_max(&stack_a);
 	radix_sort(&stack_a, &stack_b, max);

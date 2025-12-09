@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 19:11:13 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/05 05:18:18 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/08 10:40:50 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,25 @@ t_stack	*ft_stacknew(int value)
 	node->index = 0;
 	node->next = NULL;
 	return (node);
+}
+
+int	overflow_check(long num, int sign)
+{
+	if ((sign == 1 && num > INT_MAX) || (sign == -1 && num > (long)INT_MAX + 1))
+		return (0);
+	return (1);
+}
+
+int	check_duplicate(int *values, int count, int new_value)
+{
+	int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		if (values[i] == new_value)
+			return (1);
+		i++;
+	}
+	return (0);
 }

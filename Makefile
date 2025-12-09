@@ -6,7 +6,7 @@
 #    By: afournie <afournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/02 11:21:47 by afournie          #+#    #+#              #
-#    Updated: 2025/12/02 17:28:34 by afournie         ###   ########.fr        #
+#    Updated: 2025/12/08 10:29:12 by afournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,13 @@ LIBFT_DIR   = libft
 LIBFT       = $(LIBFT_DIR)/libft.a
 INC         = -I includes -I $(LIBFT_DIR)
 
-SRCS        = $(wildcard srcs/*.c) $(wildcard srcs/operations/*.c)
+SRCS        =	srcs/main.c \
+				srcs/utils.c \
+				srcs/errors/error.c \
+				srcs/operations/push.c \
+				srcs/operations/reverse_rotate.c \
+				srcs/operations/rotate.c \
+				srcs/operations/swap.c
 
 OBJS        = $(SRCS:.c=.o)
 

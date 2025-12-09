@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:21:58 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/05 05:12:28 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/08 10:46:06 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+# include <ctype.h>
+# include <limits.h>
 # include <stddef.h>
+# include <stdlib.h>
 # include <unistd.h>
 
 typedef struct s_stack
@@ -24,10 +27,18 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-int					create_list(t_stack **lst, int value);
 t_stack				*ft_stacknew(int value);
-void				assign_index(t_stack **stack);
 int					get_max(t_stack **stack_a);
+void				assign_index(t_stack **stack);
+int					is_valid_integer(const char *str);
+int					overflow_check(long num, int sign);
+int					check_errors(int argc, char **argv);
+int					check_errors(int argc, char **argv);
+int					create_list(t_stack **lst, int value);
+int					is_within_int_limits(const char *str);
+int					validate_arg(int *values, int count, const char *arg);
+int					check_duplicate(int *values, int count, int new_value);
+int					check_duplicate(int *values, int count, int new_value);
 void				radix_sort(t_stack **stack_a, t_stack **stack_b, int max);
 
 void				sa(t_stack **stack_a);
