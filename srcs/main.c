@@ -6,32 +6,33 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:22:11 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/08 10:32:08 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:13:40 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int		i;
 	int		max;
+	char	*args_str;
 
-	i = 0;
 	stack_a = NULL;
 	stack_b = NULL;
-	(void)stack_b;
 	if (argc <= 1)
 		return (0);
-	if (check_errors(argc, argv))
-		return (1);
-	i = 1;
-	while (i < argc)
-		create_list(&stack_a, ft_atoi(argv[i++]));
+	if (argc == 2)
+		args_str = ft_strdup(argv[1]);
+	else
+		args_str = join_args(argc, argv);
+	if (!args_str)
+		return (write(2, "Error\n", 6), 1);
+	if (parse_string_args(args_str, &stack_a))
+		return (free(args_str), 1);
+	free(args_str);
 	assign_index(&stack_a);
 	max = get_max(&stack_a);
 	radix_sort(&stack_a, &stack_b, max);

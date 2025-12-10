@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:21:58 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/08 10:46:06 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:10:26 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int					validate_arg(int *values, int count, const char *arg);
 int					check_duplicate(int *values, int count, int new_value);
 int					check_duplicate(int *values, int count, int new_value);
 void				radix_sort(t_stack **stack_a, t_stack **stack_b, int max);
+int					parse_string_args(char *arg, t_stack **stack_a);
+char				*join_args(int argc, char **argv);
 
 void				sa(t_stack **stack_a);
 void				sb(t_stack **stack_b);

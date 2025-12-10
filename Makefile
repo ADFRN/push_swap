@@ -6,7 +6,7 @@
 #    By: afournie <afournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/02 11:21:47 by afournie          #+#    #+#              #
-#    Updated: 2025/12/08 10:29:12 by afournie         ###   ########.fr        #
+#    Updated: 2025/12/10 12:10:26 by afournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ LIBFT       = $(LIBFT_DIR)/libft.a
 INC         = -I includes -I $(LIBFT_DIR)
 
 SRCS        =	srcs/main.c \
+				srcs/parse.c \
 				srcs/utils.c \
 				srcs/errors/error.c \
 				srcs/operations/push.c \
