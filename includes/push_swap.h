@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:21:58 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/16 13:27:23 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/16 18:22:15 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void				sort_two(t_stack **stack_a);
 int					min_value(t_stack **stack_a);
 void				assign_index(t_stack **stack);
 void				sort_three(t_stack **stack_a);
+int					already_sorted(t_stack **stack_a);
 char				*join_args(int argc, char **argv);
 int					is_valid_integer(const char *str);
 int					overflow_check(long num, int sign);
@@ -47,6 +48,7 @@ int					check_duplicate(int *values, int count, int new_value);
 void				sort_five(t_stack **stack_a, t_stack **stack_b, int max);
 void				sort_small(t_stack **stack_a, t_stack **stack_b, int max);
 void				radix_sort(t_stack **stack_a, t_stack **stack_b, int max);
+void				sort_stacks(t_stack **stack_a, t_stack **stack_b, int max);
 
 void				sa(t_stack **stack_a);
 void				pa(t_stack **stack_a, t_stack **stack_b);

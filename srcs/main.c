@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:22:11 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/16 15:18:32 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/16 18:22:31 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,33 @@ int	main(int argc, char **argv)
 	free(args_str);
 	assign_index(&stack_a);
 	max = get_max(&stack_a);
+	if (already_sorted(&stack_a))
+		return (EXIT_SUCCESS);
+	sort_stacks(&stack_a, &stack_b, max);
+	return (EXIT_SUCCESS);
+}
+
+int	already_sorted(t_stack **stack_a)
+{
+	t_stack	*tmp;
+
+	tmp = (*stack_a);
+	while (tmp->next)
+	{
+		if (tmp->index < tmp->next->index)
+			tmp = tmp->next;
+		else
+			return (0);
+	}
+	return (1);
+}
+
+void	sort_stacks(t_stack **stack_a, t_stack **stack_b, int max)
+{
 	if (max < 5)
-		sort_small(&stack_a, &stack_b, max + 1);
+		sort_small(stack_a, stack_b, max + 1);
 	else
-		radix_sort(&stack_a, &stack_b, max);
-	return (0);
+		radix_sort(stack_a, stack_b, max);
 }
 
 void	assign_index(t_stack **stack)
