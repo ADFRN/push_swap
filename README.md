@@ -1,7 +1,5 @@
 # Push_swap
 
-## 📋 Description
-
 Push_swap est un projet d'algorithme de tri qui utilise deux piles (stack A et stack B) et un ensemble limité d'opérations pour trier des nombres entiers.
 
 Le but est de trier les nombres de la pile A en ordre croissant avec le **minimum de mouvements possible**.
@@ -16,8 +14,6 @@ Le but est de trier les nombres de la pile A en ordre croissant avec le **minimu
 
 ### Swap
 - `sa` : swap le premier et deuxième élément de la pile A
-- `sb` : swap le premier et deuxième élément de la pile B
-- `ss` : `sa` et `sb` en même temps
 
 ### Push
 - `pa` : prend le premier élément de B et le met sur A
@@ -25,18 +21,14 @@ Le but est de trier les nombres de la pile A en ordre croissant avec le **minimu
 
 ### Rotate
 - `ra` : décale tous les éléments de A vers le haut (le premier devient dernier)
-- `rb` : décale tous les éléments de B vers le haut
-- `rr` : `ra` et `rb` en même temps
 
 ### Reverse rotate
 - `rra` : décale tous les éléments de A vers le bas (le dernier devient premier)
-- `rrb` : décale tous les éléments de B vers le bas
-- `rrr` : `rra` et `rrb` en même temps
 
 ## 🚀 Compilation et utilisation
 
 ```bash
-# Compilation
+# Compilation+
 make
 
 # Exemples d'utilisation
@@ -77,7 +69,3 @@ push_swap/
 │   └── errors/     # Gestion d'erreurs
 └── Makefile
 ```
-
-## 🎓 Projet 42
-
-Ce projet fait partie du cursus de l'école 42.
