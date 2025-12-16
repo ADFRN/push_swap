@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:34:07 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/16 13:09:49 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/16 17:13:20 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	min_value(t_stack **stack_a)
 
 void	sort_small(t_stack **stack_a, t_stack **stack_b, int max)
 {
+	if (max == 1)
+		return ;
 	if (max == 2)
 		sort_two(stack_a);
 	else if (max == 3)

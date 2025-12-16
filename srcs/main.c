@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:22:11 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/16 12:07:14 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/16 15:18:32 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	free(args_str);
 	assign_index(&stack_a);
 	max = get_max(&stack_a);
-	if (max <= 5)
+	if (max < 5)
 		sort_small(&stack_a, &stack_b, max + 1);
 	else
 		radix_sort(&stack_a, &stack_b, max);
