@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:21:58 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/16 11:45:03 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/16 13:27:23 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,9 @@ void				sort_small(t_stack **stack_a, t_stack **stack_b, int max);
 void				radix_sort(t_stack **stack_a, t_stack **stack_b, int max);
 
 void				sa(t_stack **stack_a);
-void				sb(t_stack **stack_b);
-void				ss(t_stack **stack_a, t_stack **stack_b);
 void				pa(t_stack **stack_a, t_stack **stack_b);
 void				pb(t_stack **stack_a, t_stack **stack_b);
 void				ra(t_stack **stack_a);
-void				rb(t_stack **stack_b);
-void				rr(t_stack **stack_a, t_stack **stack_b);
 void				rra(t_stack **stack_a);
-void				rrb(t_stack **stack_b);
-void				rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif
