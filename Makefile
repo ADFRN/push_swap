@@ -6,13 +6,13 @@
 #    By: afournie <afournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/02 11:21:47 by afournie          #+#    #+#              #
-#    Updated: 2025/12/10 12:10:26 by afournie         ###   ########.fr        #
+#    Updated: 2025/12/16 10:49:42 by afournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        = push_swap
 CC          = cc
-CFLAGS      = -Wall -Wextra -Werror -g
+CFLAGS      = -g
 
 LIBFT_DIR   = libft
 LIBFT       = $(LIBFT_DIR)/libft.a
@@ -21,6 +21,7 @@ INC         = -I includes -I $(LIBFT_DIR)
 SRCS        =	srcs/main.c \
 				srcs/parse.c \
 				srcs/utils.c \
+				srcs/sort_small.c \
 				srcs/errors/error.c \
 				srcs/operations/push.c \
 				srcs/operations/reverse_rotate.c \

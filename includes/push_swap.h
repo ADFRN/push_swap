@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:21:58 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/10 12:10:26 by afournie         ###   ########.fr       */
+/*   Updated: 2025/12/16 11:45:03 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,24 @@ typedef struct s_stack
 
 t_stack				*ft_stacknew(int value);
 int					get_max(t_stack **stack_a);
+void				sort_two(t_stack **stack_a);
+int					min_value(t_stack **stack_a);
 void				assign_index(t_stack **stack);
+void				sort_three(t_stack **stack_a);
+char				*join_args(int argc, char **argv);
 int					is_valid_integer(const char *str);
 int					overflow_check(long num, int sign);
 int					check_errors(int argc, char **argv);
 int					check_errors(int argc, char **argv);
 int					create_list(t_stack **lst, int value);
 int					is_within_int_limits(const char *str);
+int					parse_string_args(char *arg, t_stack **stack_a);
 int					validate_arg(int *values, int count, const char *arg);
 int					check_duplicate(int *values, int count, int new_value);
 int					check_duplicate(int *values, int count, int new_value);
+void				sort_five(t_stack **stack_a, t_stack **stack_b, int max);
+void				sort_small(t_stack **stack_a, t_stack **stack_b, int max);
 void				radix_sort(t_stack **stack_a, t_stack **stack_b, int max);
-int					parse_string_args(char *arg, t_stack **stack_a);
-char				*join_args(int argc, char **argv);
 
 void				sa(t_stack **stack_a);
 void				sb(t_stack **stack_b);
