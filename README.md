@@ -1,71 +1,53 @@
-# Push_swap
+*This project has been created as part of the 42 curriculum by afournie*
 
-Push_swap est un projet d'algorithme de tri qui utilise deux piles (stack A et stack B) et un ensemble limité d'opérations pour trier des nombres entiers.
+# push_swap
 
-Le but est de trier les nombres de la pile A en ordre croissant avec le **minimum de mouvements possible**.
+## Description
+push_swap is a sorting project that uses two stacks (A and B) and a restricted set of operations to sort a list of integers in ascending order. The program must output the shortest possible sequence of valid operations that sorts stack A. For very small inputs, specialized routines are used; for larger inputs, a bitwise radix strategy is applied.
 
-## 🎯 Objectif
+## Instructions
+- Requirements: a POSIX environment with `make` and a C compiler.
 
-- Recevoir une liste de nombres entiers en paramètres
-- Trier ces nombres dans la pile A en utilisant uniquement les opérations autorisées
-- Optimiser le nombre d'instructions pour obtenir le meilleur score
-
-## 🔧 Operations autorisées
-
-### Swap
-- `sa` : swap le premier et deuxième élément de la pile A
-
-### Push
-- `pa` : prend le premier élément de B et le met sur A
-- `pb` : prend le premier élément de A et le met sur B
-
-### Rotate
-- `ra` : décale tous les éléments de A vers le haut (le premier devient dernier)
-
-### Reverse rotate
-- `rra` : décale tous les éléments de A vers le bas (le dernier devient premier)
-
-## 🚀 Compilation et utilisation
-
+- Build:
 ```bash
-# Compilation+
 make
+```
 
-# Exemples d'utilisation
+- Run (examples):
+```bash
 ./push_swap 3 2 1
 ./push_swap "3 2 1"
-./push_swap 42 8 -15 0 23
+ARG="3 2 1 5 4"; ./push_swap $ARG
+```
 
-# Test avec checker
+- Verify with the Linux checker (if available):
+```bash
 ARG="3 2 1 5 4"; ./push_swap $ARG | ./checker_linux $ARG
 ```
 
-## 📊 Algorithmes utilisés
+## Operations
+- Swap: `sa`
+- Push: `pa`, `pb`
+- Rotate: `ra`
+- Reverse rotate: `rra`
 
-Le programme adapte son algorithme en fonction du nombre d'éléments :
+## Error Handling
+If input is invalid (non-numeric values, duplicates, out-of-int-range values, or malformed lists), the program writes `Error\n` to stderr and exits.
 
-- **2-3 éléments** : Tri simple avec des opérations de base
-- **4-5 éléments** : Tri optimisé pour petites listes
-- **Plus de 5 éléments** : Algorithme radix sort (tri par bits)
-
-## ✅ Gestion des erreurs
-
-Le programme vérifie et gère :
-- Les arguments non numériques
-- Les doublons
-- Les dépassements d'entiers (INT_MIN / INT_MAX)
-- Les listes vides ou mal formatées
-
-En cas d'erreur, le programme affiche `Error` sur la sortie d'erreur.
-
-## 📁 Structure du projet
-
+## Project Structure
 ```
 push_swap/
-├── includes/       # Fichiers header
-├── libft/          # Lbft
-├── srcs/           # Code source
-│   ├── operations/ # Opérations de pile
-│   └── errors/     # Gestion d'erreurs
+├── includes/       # Header files
+├── libft/          # libft library
+├── srcs/           # Source code
+│   ├── operations/ # Stack operations
+│   └── errors/     # Error handling
 └── Makefile
 ```
+
+## Resources
+- Stack (abstract data type): https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
+- Radix sort (LSD): https://en.wikipedia.org/wiki/Radix_sort
+- AI usage (GitHub Copilot, Claude.AI):
+	- Drafted and polished this README (structure, wording, examples).
+	- Help with understanding byte manipulation.
