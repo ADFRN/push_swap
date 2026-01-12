@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:13:25 by afournie          #+#    #+#             */
-/*   Updated: 2025/11/11 17:38:42 by afournie         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:00:56 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strdup(const char *s)
 	char	*new;
 
 	i = 0;
+	if (s[0] == '\0')
+		return (NULL);
 	size = ft_strlen(s);
 	new = malloc(sizeof(char) * (size + 1));
 	if (!new)

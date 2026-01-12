@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:21:58 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/16 18:22:15 by afournie         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:33:43 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int					check_errors(int argc, char **argv);
 int					create_list(t_stack **lst, int value);
 int					is_within_int_limits(const char *str);
 int					parse_string_args(char *arg, t_stack **stack_a);
+int					find_position(t_stack **stack, int target_index);
 int					validate_arg(int *values, int count, const char *arg);
 int					check_duplicate(int *values, int count, int new_value);
 int					check_duplicate(int *values, int count, int new_value);

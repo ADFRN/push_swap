@@ -6,27 +6,28 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 10:34:07 by afournie          #+#    #+#             */
-/*   Updated: 2025/12/16 17:13:20 by afournie         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:33:26 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-int	min_value(t_stack **stack_a)
+int	find_position(t_stack **stack, int target_index)
 {
 	t_stack	*current;
-	int		min_value;
+	int		pos;
 
-	current = *stack_a;
-	min_value = current->index;
+	current = *stack;
+	pos = 0;
 	while (current)
 	{
-		if (current->index < min_value)
-			min_value = current->index;
+		if (current->index == target_index)
+			return (pos);
 		current = current->next;
+		pos++;
 	}
-	return (min_value);
+	return (-1);
 }
 
 void	sort_small(t_stack **stack_a, t_stack **stack_b, int max)
@@ -69,11 +70,11 @@ void	sort_three(t_stack **stack_a)
 		rra(stack_a);
 	}
 	else if (a > b && b < c && a > c)
-		rra(stack_a);
+		ra(stack_a);
 	else if (a < b && b > c && a < c)
 	{
 		sa(stack_a);
-		rra(stack_a);
+		ra(stack_a);
 	}
 	else if (a < b && b > c && a > c)
 		rra(stack_a);
@@ -82,16 +83,18 @@ void	sort_three(t_stack **stack_a)
 void	sort_five(t_stack **stack_a, t_stack **stack_b, int max)
 {
 	int	i;
+	int	pos;
 
 	i = 0;
 	while (i < (max - 3))
 	{
 		while ((*stack_a)->index != i)
 		{
-			if (min_value(stack_a) < i / 2)
-				rra(stack_a);
-			else
+			pos = find_position(stack_a, i);
+			if (pos <= (max - i) / 2)
 				ra(stack_a);
+			else
+				rra(stack_a);
 		}
 		pb(stack_a, stack_b);
 		i++;
