@@ -6,13 +6,13 @@
 #    By: afournie <afournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/02 11:21:47 by afournie          #+#    #+#              #
-#    Updated: 2025/12/16 10:49:42 by afournie         ###   ########.fr        #
+#    Updated: 2026/01/12 10:27:34 by afournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        = push_swap
 CC          = cc
-CFLAGS      = -g
+CFLAGS      = -Wall -Werror -Wextra
 
 LIBFT_DIR   = libft
 LIBFT       = $(LIBFT_DIR)/libft.a

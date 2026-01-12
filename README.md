@@ -6,7 +6,6 @@
 push_swap is a sorting project that uses two stacks (A and B) and a restricted set of operations to sort a list of integers in ascending order. The program must output the shortest possible sequence of valid operations that sorts stack A. For very small inputs, specialized routines are used; for larger inputs, a bitwise radix strategy is applied.
 
 ## Instructions
-- Requirements: a POSIX environment with `make` and a C compiler.
 
 - Build:
 ```bash
