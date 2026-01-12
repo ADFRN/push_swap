@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:22:11 by afournie          #+#    #+#             */
-/*   Updated: 2026/01/12 11:10:30 by afournie         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:57:12 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int		max;
 	char	*args_str;
+	int		max;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -31,14 +31,14 @@ int	main(int argc, char **argv)
 	if (!args_str)
 		return (write(2, "Error\n", 6), 1);
 	if (parse_string_args(args_str, &stack_a))
-		return (free(args_str), 1);
+		return (free_stack(stack_a), free_stack(stack_b), free(args_str), 1);
 	free(args_str);
 	assign_index(&stack_a);
 	max = get_max(&stack_a);
 	if (already_sorted(&stack_a))
-		return (EXIT_SUCCESS);
+		return (free_stack(stack_a), free_stack(stack_b), EXIT_SUCCESS);
 	sort_stacks(&stack_a, &stack_b, max);
-	return (EXIT_SUCCESS);
+	return (free_stack(stack_a), free_stack(stack_b), EXIT_SUCCESS);
 }
 
 int	already_sorted(t_stack **stack_a)

@@ -6,7 +6,7 @@
 /*   By: afournie <afournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 11:21:58 by afournie          #+#    #+#             */
-/*   Updated: 2026/01/12 12:33:43 by afournie         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:50:38 by afournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_stack
 
 t_stack				*ft_stacknew(int value);
 int					get_max(t_stack **stack_a);
+void				free_stack(t_stack *stack);
 void				sort_two(t_stack **stack_a);
-int					min_value(t_stack **stack_a);
 void				assign_index(t_stack **stack);
 void				sort_three(t_stack **stack_a);
 int					already_sorted(t_stack **stack_a);

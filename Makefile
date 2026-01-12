@@ -6,7 +6,7 @@
 #    By: afournie <afournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/02 11:21:47 by afournie          #+#    #+#              #
-#    Updated: 2026/01/12 13:17:16 by afournie         ###   ########.fr        #
+#    Updated: 2026/01/12 16:51:02 by afournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ LIBFT       = $(LIBFT_DIR)/libft.a
 INC         = -I includes -I $(LIBFT_DIR)
 
 SRCS        =	srcs/main.c \
+				srcs/free.c \
 				srcs/parse.c \
 				srcs/utils.c \
 				srcs/sort_small.c \
